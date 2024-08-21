@@ -4,7 +4,7 @@ const indexRouter = Router();
 
 indexRouter.get("/", (req, res) => {
     console.log("Usernames will be logged here");
-    res.send("PostgreSQL lesson");
+    res.send("Router response sent");
   });
 
   indexRouter.get("/kevin", (req, res) => res.send("Kevin is cool"));
