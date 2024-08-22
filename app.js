@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+// This ^^ is needed to access req.body from the form submission
 
 const path = require("path");
 
