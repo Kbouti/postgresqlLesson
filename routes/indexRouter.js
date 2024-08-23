@@ -2,10 +2,13 @@ const { Router } = require("express");
 
 const indexRouter = Router();
 
-const handleFormSubmit = require("../controllers/indexController");
+const indexController = require("../controllers/indexController");
+
 
 indexRouter.get("/", (req, res) => {
   console.log("Usernames will be logged here");
+  const usernames = indexController.getUsernames();
+
   res.render("../views/index", { title: "PostgreSQL Lesson" });
 });
 
@@ -16,7 +19,7 @@ indexRouter.get("/new", (req, res) => {
 
 indexRouter.post("/new", (req, res) => {
   console.log("/new post request received");
-  handleFormSubmit(req, res);
+  indexController.handleFormSubmit(req, res);
   res.render("../views/index", { title: "Form submitted!" });
 });
 
