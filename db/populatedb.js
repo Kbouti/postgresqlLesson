@@ -18,7 +18,7 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: "postgresql://<role_name>:<role_password>@localhost:5432/top_users",
+    connectionString: process.env.CONNECTION_STRING,
   });
   await client.connect();
   await client.query(SQL);
