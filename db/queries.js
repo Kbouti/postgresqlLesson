@@ -10,6 +10,11 @@ async function getAllUsernames() {
   return rows;
 }
 
+
+// Next we need to implement a search function. 
+
+
+
 async function insertUsername(username) {
   await pool.query("insert into usernames (username) values ($1)", [username]);
 }

@@ -8,9 +8,6 @@ async function getUsernames(req, res) {
   console.log(
     "Usernames: " + usernames.map((user) => user.username).join(", ")
   );
-
-
-
   return usernames;
   //   res.send("Usernames: " + usernames.map(user => user.username).join(", "));
 }
@@ -23,6 +20,13 @@ async function createUsername(req, res) {
   console.log(`Creating username: ${username}`);
   await db.insertUsername(username);
 }
+
+
+
+
+// Next we need to search for a specific term. 
+
+
 
 module.exports = {
   getUsernames,
