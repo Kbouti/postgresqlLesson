@@ -13,7 +13,7 @@ indexRouter.get("/", async (req, res) => {
   // Next we should be able to render usernames in our view.
   // *************************************************************************************
 
-  res.render("../views/index", { title: "PostgreSQL Lesson" });
+  res.render("../views/index", { title: "PostgreSQL Lesson", usernames});
 });
 
 indexRouter.get("/new", (req, res) => {

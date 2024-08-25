@@ -8,6 +8,15 @@
 <body>
     <h1><%=title %></h1>
     <a href="/new">Create user</a>
+<ul>
+<% usernames.forEach((username) => {  %>
+<li>
+   <p><%= username.id %></p>
+   <p><%= username.username %></p>
+</li>
+
+<% }) %>
+</ul>
 
 
 </body>
