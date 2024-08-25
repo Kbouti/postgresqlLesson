@@ -26,12 +26,13 @@ indexRouter.post("/new", (req, res) => {
   //   res.render("../views/index", { title: "Form submitted!" });
 });
 
-indexRouter.post("/search", (req, res) => {
-  const searchTerm = req.body.searchTerm;
-  console.log(`Search post route activated, searchTerm: ${searchTerm}`);
+indexRouter.post("/search", async (req, res) => {
+  console.log(
+    `Search post route activated, searchTerm: ${req.body.searchTerm}`
+  );
 
-  // So next we need to search our database for the search term. We'll need to invoke a dbquery function.
-  // We can write the function there and require and call it here.
+  const queryResults = await indexController.triggerSearch(req, res);
+  console.log(queryResults);
 
   res.redirect("/");
 });

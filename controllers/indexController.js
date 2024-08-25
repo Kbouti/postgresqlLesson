@@ -21,14 +21,14 @@ async function createUsername(req, res) {
   await db.insertUsername(username);
 }
 
-
-
-
-// Next we need to search for a specific term. 
-
-
+async function triggerSearch(req, res) {
+  const searchTerm = req.body.searchTerm;
+  const queryResults = await db.querySearchResults(searchTerm);
+  return queryResults;
+}
 
 module.exports = {
   getUsernames,
   createUsername,
+  triggerSearch,
 };
