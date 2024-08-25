@@ -4,12 +4,13 @@ const indexRouter = Router();
 
 const indexController = require("../controllers/indexController");
 
-indexRouter.get("/", (req, res) => {
+indexRouter.get("/", async (req, res) => {
   console.log("Usernames will be logged here");
-  const usernames = indexController.getUsernames();
+  const usernames = await indexController.getUsernames();
+  console.log(`Fetched usernames`);
 
-  // *************************************************************************************
-  // We can now use usernames to render them in our view
+    // *************************************************************************************
+  // Next we should be able to render usernames in our view.
   // *************************************************************************************
 
   res.render("../views/index", { title: "PostgreSQL Lesson" });

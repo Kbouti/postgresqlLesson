@@ -9,6 +9,8 @@ async function getUsernames(req, res) {
     "Usernames: " + usernames.map((user) => user.username).join(", ")
   );
 
+
+
   return usernames;
   //   res.send("Usernames: " + usernames.map(user => user.username).join(", "));
 }
