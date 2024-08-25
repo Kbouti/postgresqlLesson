@@ -10,8 +10,8 @@
     <h1><%=title %></h1>
     <div class="controls">
       <a href="/new">Create user</a>
-      <form class="searchForm">
-        <input type="text">
+      <form method="post" action="/search" class="searchForm">
+        <input name=searchTerm placeholder="Search" type="text">
         <button>Search</button>
       </form>
     </div>

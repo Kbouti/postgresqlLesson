@@ -5,15 +5,8 @@ const indexRouter = Router();
 const indexController = require("../controllers/indexController");
 
 indexRouter.get("/", async (req, res) => {
-  console.log("Usernames will be logged here");
   const usernames = await indexController.getUsernames();
-  console.log(`Fetched usernames`);
-
-    // *************************************************************************************
-  // Next we should be able to render usernames in our view.
-  // *************************************************************************************
-
-  res.render("../views/index", { title: "PostgreSQL Lesson", usernames});
+  res.render("../views/index", { title: "PostgreSQL Lesson", usernames });
 });
 
 indexRouter.get("/new", (req, res) => {
@@ -31,6 +24,16 @@ indexRouter.post("/new", (req, res) => {
   //   Return home
   res.redirect("/");
   //   res.render("../views/index", { title: "Form submitted!" });
+});
+
+indexRouter.post("/search", (req, res) => {
+  const searchTerm = req.body.searchTerm;
+  console.log(`Search post route activated, searchTerm: ${searchTerm}`);
+
+  // So next we need to search our database for the search term. We'll need to invoke a dbquery function.
+  // We can write the function there and require and call it here.
+
+  res.redirect("/");
 });
 
 indexRouter.get("/kevin", (req, res) => res.send("Kevin is cool"));
