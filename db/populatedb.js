@@ -27,3 +27,14 @@ async function main() {
 }
 
 main();
+
+
+// This does not appear to have worked. 
+// After running this file with node db/populatedb we should be able to access psql and see our table usernames. we do not. 
+
+
+// We are advised that we can add it as a script in json. We should try this, might solve our problem. If not a good skill to familiarize. 
+//  https://stackoverflow.com/questions/36433461/how-to-add-a-custom-script-to-package-json-that-runs-a-javascript-file/36433748#36433748
+
+// Ok... script added. Should be able to populate db by running: 
+// npm run populatedb
