@@ -6,13 +6,24 @@ async function getAllUsernames() {
   return rows;
 }
 
+// **************************************************************************************************
 async function querySearchResults(searchTerm) {
   console.log(`Performing query for ${searchTerm}`);
 
+  const { rows } = await pool.query(
+    `select * from usernames where username like ${searchTerm}`
+  );
   // **************************************************************************************************
   // Next we need to perform the sql search and return our results.
+  //   Brush up on sql so we can get what we need out of ^^that
   // **************************************************************************************************
+  if (rows) {
+    rows.forEach((row) => console.log(row));
+  }
+
+  //   return rows;
 }
+// **************************************************************************************************
 
 async function insertUsername(username) {
   await pool.query("insert into usernames (username) values ($1)", [username]);
