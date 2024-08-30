@@ -27,8 +27,14 @@ async function triggerSearch(req, res) {
   return queryResults;
 }
 
+async function clearAll(req, res) {
+    
+}
+
+
 module.exports = {
   getUsernames,
   createUsername,
   triggerSearch,
+  clearAll
 };

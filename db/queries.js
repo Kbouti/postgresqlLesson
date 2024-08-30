@@ -6,26 +6,14 @@ async function getAllUsernames() {
   return rows;
 }
 
-// **************************************************************************************************
 async function querySearchResults(searchTerm) {
   console.log(`Performing query for ${searchTerm}`);
-
-//   BOOOM, this is the syntax we needed. sql is picky, it needs single quotes. So we can't use template literal
-const { rows } = await pool.query(
+  const { rows } = await pool.query(
     "select * from usernames where username = '" + searchTerm + "';"
   );
-
-// Not sure why it's logging this^ but it won't get to the else statement below when there aren't any results...
-
-//   if (rows) {
-//     rows.forEach((row) => console.log(row));
-//   } else {
-//     console.log(`Search for ${searchTerm} returned no results`);
-//   }
-
-    return rows;
+  return rows;
 }
-// **************************************************************************************************
+
 
 async function insertUsername(username) {
   await pool.query("insert into usernames (username) values ($1)", [username]);

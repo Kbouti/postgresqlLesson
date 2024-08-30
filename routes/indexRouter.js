@@ -45,6 +45,12 @@ indexRouter.post("/search", async (req, res) => {
   }
 });
 
-indexRouter.get("/kevin", (req, res) => res.send("Kevin is cool"));
+indexRouter.get("/delete", (req, res) => {
+  indexController.clearAll()
+})
+
+
+indexRouter.get("*", (req, res) => res.send("Kevin is cool"));
+
 
 module.exports = indexRouter;
