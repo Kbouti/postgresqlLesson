@@ -15,15 +15,15 @@ const { rows } = await pool.query(
     "select * from usernames where username = '" + searchTerm + "';"
   );
 
-console.log("poop");
+// Not sure why it's logging this^ but it won't get to the else statement below when there aren't any results...
 
-  if (rows) {
-    rows.forEach((row) => console.log(row));
-  } else {
-    console.log(`Search for ${searchTerm} returned no results`);
-  }
+//   if (rows) {
+//     rows.forEach((row) => console.log(row));
+//   } else {
+//     console.log(`Search for ${searchTerm} returned no results`);
+//   }
 
-  //   return rows;
+    return rows;
 }
 // **************************************************************************************************
 

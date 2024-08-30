@@ -32,9 +32,17 @@ indexRouter.post("/search", async (req, res) => {
   );
 
   const queryResults = await indexController.triggerSearch(req, res);
-  console.log(queryResults);
 
-  res.redirect("/");
+  if (queryResults == undefined) {
+    console.log(`query results undefined`);
+    res.redirect("/");
+  } else {
+    console.log(`queryResults found. `);
+    res.render("../views/index", {
+      title: "PostgreSQL Lesson",
+      usernames: queryResults,
+    });
+  }
 });
 
 indexRouter.get("/kevin", (req, res) => res.send("Kevin is cool"));
