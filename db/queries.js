@@ -10,29 +10,17 @@ async function getAllUsernames() {
 async function querySearchResults(searchTerm) {
   console.log(`Performing query for ${searchTerm}`);
 
-  const { rows } = await pool.query(
-    `select * from usernames if exists where username = "${searchTerm}";`
+//   BOOOM, this is the syntax we needed. sql is picky, it needs single quotes. So we can't use template literal
+const { rows } = await pool.query(
+    "select * from usernames where username = '" + searchTerm + "';"
   );
 
-// const { rows } = await pool.query(
-//     `select * from usernames;`
-//   );
+console.log("poop");
 
-
-
-  // **************************************************************************************************
-  // Next we need to perform the sql search and return our results.
-  //   Brush up on sql so we can get what we need out of ^^that
-
-//   We're getting an error because the search results aren't found. Even if we're searching for something that should be found. 
-// We need to: 
-// -Not return an error when our search term isn't found. 
-// -Actually return results when we search for a term that exists
-
-
-  // **************************************************************************************************
   if (rows) {
     rows.forEach((row) => console.log(row));
+  } else {
+    console.log(`Search for ${searchTerm} returned no results`);
   }
 
   //   return rows;
