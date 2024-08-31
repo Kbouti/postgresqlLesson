@@ -1,6 +1,7 @@
 const { body, validationResult } = require("express-validator");
 
 const db = require("../db/queries");
+const deleteAll = require("../db/delete");
 
 async function getUsernames(req, res) {
   const usernames = await db.getAllUsernames();
@@ -27,8 +28,11 @@ async function triggerSearch(req, res) {
   return queryResults;
 }
 
+
+
 async function clearAll(req, res) {
-    
+console.log(`deleting`)
+deleteAll.clearAll();
 }
 
 
