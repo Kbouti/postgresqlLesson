@@ -46,7 +46,9 @@ indexRouter.post("/search", async (req, res) => {
 });
 
 indexRouter.get("/delete", (req, res) => {
-  indexController.clearAll()
+  indexController.clearAll();
+  res.redirect("/");
+
 })
 
 

@@ -1,7 +1,6 @@
 const { Pool } = require("pg");
 
 
-// Sooooo next up create a .env file and store our user and password there?
 
 module.exports = new Pool({
   host: "localhost", // or wherever the db is hosted

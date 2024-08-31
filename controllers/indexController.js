@@ -28,17 +28,15 @@ async function triggerSearch(req, res) {
   return queryResults;
 }
 
-
-
 async function clearAll(req, res) {
-console.log(`deleting`)
-deleteAll.clearAll();
+  console.log(`deleting`);
+  deleteAll.clearAll(req, res);
+  return;
 }
-
 
 module.exports = {
   getUsernames,
   createUsername,
   triggerSearch,
-  clearAll
+  clearAll,
 };

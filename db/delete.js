@@ -1,13 +1,10 @@
 const pool = require("./pool");
 
 
-async function clearAll() {
-
+async function clearAll(req, res) {
     console.log(`Clearing all entries`);
-
-// Ok, here is where we clear the database
-
-
+    await pool.query("delete from usernames *");
+    return;
 }
 
 
